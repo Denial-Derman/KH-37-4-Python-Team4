@@ -26,3 +26,4 @@ def upperCase():
 print("Центрування:\n", cetnerText())
 print("Нижній регістр:\n", lowerCase())
 print("Верхній регістр:\n", upperCase())
+
