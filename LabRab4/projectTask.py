@@ -57,6 +57,22 @@ def translateText(text, translation_table):
     translated_text = text.translate(translation_table)
     return translated_text
 
+# Савченко
+def rightSplit(separator=" "):
+    # Розділяє рядок на список, починаючи з правого кінця, за вказаним роздільником
+    rsplit_text = text.rsplit(separator)
+    return rsplit_text
+
+def rightStrip():
+    # Видаляє пробіли або символи з правого краю рядка
+    rstrip_text = text.rstrip()
+    return rstrip_text
+
+def splitText(separator=" "):
+    # Розділяє рядок на список за вказаним роздільником
+    split_text = text.split(separator)
+    return split_text
+
 # main
 print("Центрування:\n", cetnerText())
 print("Нижній регістр:\n", lowerCase())
@@ -81,3 +97,8 @@ print(justified_text)  # Добавлення пробілів для вирів
 translation_table = str.maketrans("аеиор", "43105")
 translated_text = translateText(joined_text, translation_table)
 print(translated_text)
+
+#main Савченко
+print(rightSplit())
+print(rightStrip())
+print(splitText())
