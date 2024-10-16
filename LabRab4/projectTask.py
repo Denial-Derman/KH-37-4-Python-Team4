@@ -21,7 +21,7 @@ def upperCase():
     upperCase=text.upper() # Конвертування рядка у верхній регістр
     return upperCase
 # Наступний студент має використати swapcase(), rindex(), find()
-
+# 123
 # main
 print("Центрування:\n", cetnerText())
 print("Нижній регістр:\n", lowerCase())
