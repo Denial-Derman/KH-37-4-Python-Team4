@@ -121,7 +121,29 @@ def remove_student(students, first_name, last_name):
             break
     if not found:
         print(f"Студента '{first_name} {last_name}' не знайдено у списку.")
+#Kucheriavenko
+def find_students_by_grade(students, subject_name, grade):
+    # Знаходимо індекс предмета
+    if subject_name not in items_list:
+        print("Цей предмет не знайдено в списку.")
+        return
 
+    subject_index = items_list.index(subject_name)
+    found_students = []
+
+    # Шукаємо студентів із заданою оцінкою за цей предмет
+    for student_info in students.values():
+        if student_info["Grades"][subject_index] == grade:
+            full_name = f"{student_info['LastName']} {student_info['FirstName']} {student_info['Patronymic']}"
+            found_students.append(full_name)
+
+    # Виводимо результат
+    if found_students:
+        print(f"Студенти з оцінкою {grade} за предмет '{subject_name}':")
+        for student in found_students:
+            print(student)
+    else:
+        print(f"Немає студентів з оцінкою {grade} за предмет '{subject_name}'.")
 #main
 print("\t\t<*> Програма запущена <*>\n")
 print("\t\t* Правило написання ключа *"
@@ -131,7 +153,8 @@ while True:
     choice = input("\n\t\t* Навігаційне меню *\n> Введіть 1, для виведення даних словника\n"
                    "> Введіть 2, для додавання нового студента\n" # Дописувати відповідний номер пункту для виконання функції
                    "> Введіть 3, для сортування студентів за критерієм\n"
-                   "> Введіть 4, для видалення студента\n" 
+                   "> Введіть 4, для видалення студента\n"
+                   "> Введіть 5, для пошуку студентів, що мають задану оцінку за дисципліною, введену користувачем\n" 
                    "> Введіть 0, щоб закінчити\n"
                    "> Введення пункту: ")
 
@@ -150,6 +173,11 @@ while True:
         first_name = input("> Введіть ім'я студента: ").strip()
         last_name = input("> Введіть прізвище студента: ").strip()
         remove_student(students, first_name, last_name)
+    elif choice == '5':
+        print("\n\t\t* Пошук студента *")
+        subject = input("Введіть назву предмета: ")
+        grade = int(input("Введіть оцінку для пошуку: "))
+        find_students_by_grade(students, subject, grade)
     elif choice == '0':
         print("\t\t<*> Програма завершена <*>")
         break
