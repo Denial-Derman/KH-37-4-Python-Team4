@@ -84,6 +84,33 @@ def add_student():
         "Grades": grades
     }
     print("> Студент успішно доданий!")
+
+#Білокур
+def sort_students(criteria):
+    print("\n\t\t* Сортування студентів за критерієм *")
+    sorted_students = []
+
+    if criteria == "ключ":
+        sorted_students = sorted(students.items(), key=lambda x: x[0])
+    elif criteria == "ім'я":
+        sorted_students = sorted(students.items(), key=lambda x: x[1]['FirstName'])
+    elif criteria == "прізвище":
+        sorted_students = sorted(students.items(), key=lambda x: x[1]['LastName'])
+    elif criteria == "курс":
+        sorted_students = sorted(students.items(), key=lambda x: x[1]['Course'])
+    else:
+        print("> Помилка: невідомий критерій сортування.")
+        return
+
+    # Виводимо відсортованих студентів
+    for key, data in sorted_students:
+        print("Ключ:\t Прізвище: Ім'я: По батькові:\t Група:\t Курс:")
+        print(f"{key} —\t{data['LastName']} {data['FirstName']} {data['Patronymic']}\t {data['GroupNumber']} {data['Course']}")
+        print("Предмети та оцінки:")
+        for subject, grade in zip(data["Subjects"], data["Grades"]):
+            print(f"\t{subject}: {grade}")
+        print()
+
 #main
 print("\t\t<*> Програма запущена <*>\n")
 print("\t\t* Правило написання ключа *"
@@ -92,6 +119,7 @@ print("\t\t* Правило написання ключа *"
 while True:
     choice = input("\n\t\t* Навігаційне меню *\n> Введіть 1, для виведення даних словника\n"
                    "> Введіть 2, для додавання нового студента\n" # Дописувати відповідний номер пункту для виконання функції
+                   "> Введіть 3, для сортування студентів за критерієм\n"
                    # Наступний пункт: Додати функцію сортування 
                    "> Введіть 0, щоб закінчити\n"
                    "> Введення пункту: ")
@@ -100,7 +128,12 @@ while True:
         print("\n\t\t* Вивід складу словника *")
         display_students()
     elif choice == '2':
+        print("\n\t\t* Додавання нового студента *")
         add_student()
+    elif choice == '3':
+        print("\n\t\t* Сортування за критерієм *")
+        criteria = input("> Введіть критерій для сортування (ключ, ім'я, прізвище, курс): ").strip().lower()
+        sort_students(criteria)
     elif choice == '0':
         print("\t\t<*> Програма завершена <*>")
         break
