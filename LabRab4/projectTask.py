@@ -74,20 +74,14 @@ def splitText(separator=" "):
     return split_text
 
 #Білокур
-def is_palindrome(text):
-  # Видаляємо всі пробіли та розділові знаки і приводимо до нижнього регістру
-  cleaned_text = ''.join(c for c in text if c.isalnum()).lower()
-  return cleaned_text == cleaned_text[::-1]
-from collections import Counter
+def titleCase():
+    return text.title()
 
-def word_frequency(text):
-  words = text.split()
-  return Counter(words)
+def isDigit():
+    return text.isdigit()
 
-def replace_vowels(text, replacement):
-  vowels = "aeiouyAEIOUY"
-  translation_table = str.maketrans(vowels, replacement * len(vowels))
-  return text.translate(translation_table)
+def isAlpha():
+    return text.isalpha()
 
 # main
 print("Центрування:\n", cetnerText())
@@ -120,8 +114,6 @@ print(rightStrip())
 print(splitText())
 
 #main Білокур
-print(is_palindrome(text))
-word_counts = word_frequency(text)
-print(word_counts)
-new_text = replace_vowels(text, 'x')
-print(new_text)
+print("Заголовковий стиль:\n", titleCase())  # Текст у заголовковому стилі
+print("Чи містить тільки цифри:", isDigit())  # Перевірка, чи складається текст тільки з цифр
+print("Чи містить тільки букви:", isAlpha())  # Перевірка, чи складається текст тільки з літер
