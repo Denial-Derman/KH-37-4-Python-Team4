@@ -1,5 +1,5 @@
 #  Функція для відкриття файлу у заданому режимі.
-def Open(file_name, mode):
+def Open(file_name, mode, encoding="utf-8"):
     try:
         file = open(file_name, mode)
     except:
@@ -10,11 +10,11 @@ def Open(file_name, mode):
         return file
 
 file_name = "test_python.txt"
-file_w = Open(file_name, "w")
+file_w = Open(file_name, "w", encoding="utf-8")
 # Завдов'єв Денис надання першого питання
 if file_w:
     try:
-        file_w.write("Прізвище: Завдов'єв\n")
+        file_w.write("Прізвище: Завдов'єв Денис\n")
         file_w.write("Питання: Що робить цикл for у Python?\n")
         print(f"Файл {file_name} успішно створено!")
     except Exception as e:
