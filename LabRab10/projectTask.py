@@ -15,7 +15,7 @@ file_w = Open(file_name, "w", encoding="utf-8")
 if file_w:
     try:
         file_w.write("Прізвище: Завдов'єв\n")
-        file_w.write("Питання: Що робить цикл for у Python?\n")
+        file_w.write("Питання 1: Що робить цикл for у Python?\n")
         print(f"Файл {file_name} успішно створено!")
     except Exception as e:
         print(f"Помилка при записі у файл {file_name}: {e}")
