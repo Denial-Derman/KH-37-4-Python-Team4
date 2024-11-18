@@ -24,6 +24,18 @@ if file_w:
         print(f"Файл {file_name} закрито!")
 
 # Місце для інших студентів
+#Савченко Сергій
+file_a = Open(file_name, "a")  # Використовуємо режим append
+if file_a:
+    try:
+        file_a.write("\nСтудент: Савченко Сергій\n")
+        file_a.write("Відповідь 1): Цикл `for` у Python використовується для проходу по кожному елементу в послідовності і виконання певного коду для кожного з них.\n")
+        file_a.write("Питання 2): Що робить функція len() у Python?\n")
+    except Exception as e:
+        print(f"Помилка при записі у файл {file_name}: {e}")
+    finally:
+        file_a.close()
+        print(f"Файл {file_name} закрито!")
 
 # Читання і друк. Додано з метою виводу тексту з файла
 file_r = Open(file_name, "r")
