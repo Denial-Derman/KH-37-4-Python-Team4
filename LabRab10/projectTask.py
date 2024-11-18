@@ -23,6 +23,8 @@ if file_w:
         file_w.close()
         print(f"Файл {file_name} закрито!")
 
+# Місце для інших студентів
+
 # Читання і друк. Додано з метою виводу тексту з файла
 file_r = Open(file_name, "r")
 if file_r != None:
