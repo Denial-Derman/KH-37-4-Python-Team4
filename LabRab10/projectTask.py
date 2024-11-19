@@ -37,6 +37,19 @@ if file_a:
         file_a.close()
         print(f"Файл {file_name} закрито!")
 
+#Галиченко Анна
+file_a = Open(file_name, "a")  # Використовуємо режим append
+if file_a:
+    try:
+        file_a.write("\nСтудентка: Галиченко Анна\n")
+        file_a.write("Відповідь 2): Функція len() у Python використовується для отримання довжини (кількості елементів) об'єкта, який підтримує цю операцію.\n")
+        file_a.write("Питання 3): Як у Python створити словник і додати в нього пару ключ-значення?\n")
+    except Exception as e:
+        print(f"Помилка при записі у файл {file_name}: {e}")
+    finally:
+        file_a.close()
+        print(f"Файл {file_name} закрито!")
+
 # Читання і друк. Додано з метою виводу тексту з файла
 file_r = Open(file_name, "r")
 if file_r != None:
