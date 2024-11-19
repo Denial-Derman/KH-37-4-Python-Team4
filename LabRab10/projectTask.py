@@ -50,6 +50,19 @@ if file_a:
         file_a.close()
         print(f"Файл {file_name} закрито!")
 
+#Кучерявенко Роман
+file_a = Open(file_name, "a")  # Використовуємо режим append
+if file_a:
+    try:
+        file_a.write("\nСтудент: Кучерявенко Роман\n")
+        file_a.write("Відповідь 3): Створити словник у Python можна за допомогою фігурних дужок {}, а додати пару ключ-значення — через присвоєння значення за ключем або методом update().\n")
+        file_a.write("Питання 4): Як у Python вивести текст на екран?\n")
+    except Exception as e:
+        print(f"Помилка при записі у файл {file_name}: {e}")
+    finally:
+        file_a.close()
+        print(f"Файл {file_name} закрито!")
+
 # Читання і друк. Додано з метою виводу тексту з файла
 file_r = Open(file_name, "r")
 if file_r != None:
