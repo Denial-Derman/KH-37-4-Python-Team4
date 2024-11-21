@@ -63,6 +63,19 @@ if file_a:
         file_a.close()
         print(f"Файл {file_name} закрито!")
 
+#Білокур Катерина
+file_a = Open(file_name, "a")  # Використовуємо режим append
+if file_a:
+    try:
+        file_a.write("\nСтудентка: Білокур Катерина\n")
+        file_a.write("Відповідь 4): У Python для виведення тексту на екран використовується функція print().\n")
+        file_a.write("Питання 5): Як оголосити змінну в Python?\n")
+    except Exception as e:
+        print(f"Помилка при записі у файл {file_name}: {e}")
+    finally:
+        file_a.close()
+        print(f"Файл {file_name} закрито!")
+
 # Читання і друк. Додано з метою виводу тексту з файла
 file_r = Open(file_name, "r")
 if file_r != None:
