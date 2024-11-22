@@ -78,28 +78,31 @@ def read_json(json_filename):
         print(f"Сталася помилка при читанні JSON: {e}")
 
 # Функції наступних студентів
-# Прізвище
+# Галиченко Анна
 # переписати дані з JSON у CSV, додавши нові рядки
-# def json_to_csv_add(csv_filename, json_filename, new_data):
-#     try:
-#         # Читаємо дані з JSON
-#         with open(json_filename, mode='rt', encoding='utf-8') as json_file:
-#             data = json.load(json_file)
-#
-#         # Перетворюємо дані з JSON в список для запису у CSV
-#         students_list = []
-#         for student_id, student_info in data.items():
-#             student_info["id"] = student_id
-#             students_list.append(student_info)
-#
-#         # Додаємо нові дані до списку
-#         students_list.extend(new_data)
-#
-#         # Записуємо оновлений список у CSV
-#         write_csv(csv_filename, students_list)
-#         print(f"Дані успішно переписані з {json_filename} у {csv_filename}, додано нові рядки.")
-#     except Exception as e:
-#         print(f"Сталася помилка при переписуванні з JSON у CSV: {e}")
+def json_to_csv1(csv_filename, json_filename, new_data):
+    try:
+        # Читаємо дані з JSON
+        with open(json_filename, mode='rt', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+
+        # Перетворюємо дані з JSON в список для запису у CSV
+        students_list = []
+        for student_id, student_info in data.items():
+            student_info["id"] = student_id
+            students_list.append(student_info)
+
+        # Додаємо нові дані до списку
+        students_list.extend(new_data)
+
+        # Записуємо оновлений список у CSV
+        write_csv(csv_filename, students_list)
+        print(f"Дані успішно переписані з {json_filename} у {csv_filename}, додано нові рядки.")
+    except Exception as e:
+        print(f"Сталася помилка при переписуванні з JSON у CSV: {e}")
+
+#Призвіще
+
 
 # Завдов'єв Денис запис:
 # Спочатку записуємо дані у .csv файл
@@ -109,12 +112,12 @@ write_csv('student.csv', students_list)
 write_json('student.json', students_data)
 
 # інші студенти
-# Прізвище
-# new_data_csv = [
-#     {"Прізвище": "Гречаник", "Ім'я": "Марія", "Адреса": "вул. Тараса Шевченка, 13", "Номер школи": 8, "Клас": 10, "id": "0220"},
-#     {"Прізвище": "Мельник", "Ім'я": "Іван", "Адреса": "вул. Степана Бандери, 45", "Номер школи": 3, "Клас": 11, "id": "0080"}
-# ]
-# json_to_csv_add('student.csv', 'student.json', new_data_csv)
+# Галиченко АНя
+new_csv1 = [
+     {"Прізвище": "Ковальчук", "Ім'я": "Олег", "Адреса": "вул. Лесі Українки, 25", "Номер школи": 7, "Клас": 10, "id": "0071"},
+     {"Прізвище": "Гончаренко", "Ім'я": "Анна", "Адреса": "пр. Михайла Лушпи, 18", "Номер школи": 17, "Клас": 8, "id": "0172"}
+ ]
+json_to_csv1('student.csv', 'student.json', new_csv1)
 
 
 # Тепер читаємо та виводимо дані з обох файлів
