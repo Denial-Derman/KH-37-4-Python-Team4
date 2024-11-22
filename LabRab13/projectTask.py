@@ -77,11 +77,11 @@ def read_json(json_filename):
         print(f"Сталася помилка при читанні JSON: {e}")
 
 # Спочатку записуємо дані у .csv файл
-write_csv('students.csv', students_list)
+write_csv('student.csv', students_list)
 
 # Потім перезаписуємо ті ж самі дані у .json файл
-write_json('students.json', students_data)
+write_json('student.json', students_data)
 
 # Тепер читаємо та виводимо дані з обох файлів
-read_csv('students.csv')
-read_json('students.json')
+read_csv('student.csv')
+read_json('student.json')
