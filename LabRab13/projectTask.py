@@ -101,27 +101,27 @@ def json_to_csv1(csv_filename, json_filename, new_data):
     except Exception as e:
         print(f"Сталася помилка при переписуванні з JSON у CSV: {e}")
 
-#Призвіще
+#Білокур Катерина
 #переписати дані з CSV у JSON, додавши нові рядки
-# def csv_to_json_add(json_filename, csv_filename, new_data):
-#     try:
-#         # Читаємо дані з CSV
-#         with open(csv_filename, mode='rt', encoding='utf-8') as csv_file:
-#             csv_reader = csv.DictReader(csv_file)
-#             data = {}
-#             for row in csv_reader:
-#                 student_id = row["id"]
-#                 data[student_id] = row
-#
-#         # Додаємо нові дані
-#         for new_student in new_data:
-#             data[new_student["id"]] = new_student
-#
-#         # Записуємо оновлений словник у JSON
-#         write_json(json_filename, data)
-#         print(f"Дані успішно переписані з {csv_filename} у {json_filename}, додано нові рядки.")
-#     except Exception as e:
-#         print(f"Сталася помилка при переписуванні з CSV у JSON: {e}")
+def csv_to_json1(json_filename, csv_filename, new_data):
+    try:
+        # Читаємо дані з CSV
+        with open(csv_filename, mode='rt', encoding='utf-8') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            data = {}
+            for row in csv_reader:
+                student_id = row["id"]
+                data[student_id] = row
+
+        # Додаємо нові дані
+        for new_student in new_data:
+            data[new_student["id"]] = new_student
+
+        # Записуємо оновлений словник у JSON
+        write_json(json_filename, data)
+        print(f"Дані успішно переписані з {csv_filename} у {json_filename}, додано нові рядки.")
+    except Exception as e:
+        print(f"Сталася помилка при переписуванні з CSV у JSON: {e}")
 
 # Завдов'єв Денис запис:
 # Спочатку записуємо дані у .csv файл
@@ -138,12 +138,12 @@ new_csv1 = [
  ]
 json_to_csv1('student.csv', 'student.json', new_csv1)
 
-#Прізвище
-# new_data_json = [
-#     {"Прізвище": "Кравченко", "Ім'я": "Ольга", "Адреса": "вул. Центральна, 30", "Номер школи": 5, "Клас": 9, "id": "0180"},
-#     {"Прізвище": "Бойко", "Ім'я": "Андрій", "Адреса": "вул. Лесі Українки, 10", "Номер школи": 17, "Клас": 10, "id": "0200"}
-# ]
-# csv_to_json_add('student.json', 'student.csv', new_data_json)
+#Білокур Катерина
+new_json1 = [
+    {"Прізвище": "Іваненко", "Ім'я": "Іван", "Адреса": "вул. Герасима Кондратьєва, 136", "Номер школи": 1, "Клас": 10, "id": "0010"},
+    {"Прізвище": "Петренко", "Ім'я": "Петро", "Адреса": "пр. Михайла Лушпи, 18", "Номер школи": 17, "Клас": 9, "id": "0173"}
+]
+csv_to_json1('student.json', 'student.csv', new_json1)
 
 
 # Тепер читаємо та виводимо дані з обох файлів
